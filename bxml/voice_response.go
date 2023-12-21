@@ -8,62 +8,6 @@ func Voice(verbs []Element) (string, error) {
 	return ToXML(doc)
 }
 
-// VoiceRefer <Refer> BXML Verb
-type VoiceRefer struct {
-	// action: Action URL
-	// method: Action URL method
-	// OptionalAttributes: additional attributes
-	Action             string
-	Method             string
-	InnerElements      []Element
-	OptionalAttributes map[string]string
-}
-
-func (m VoiceRefer) GetName() string {
-	return "Refer"
-}
-
-func (m VoiceRefer) GetText() string {
-	return ""
-}
-
-func (m VoiceRefer) GetAttr() (map[string]string, map[string]string) {
-	paramsAttr := map[string]string{
-		"Action": m.Action,
-		"Method": m.Method,
-	}
-	return m.OptionalAttributes, paramsAttr
-}
-
-func (m VoiceRefer) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
-// VoiceReferSip <Sip> BXML Noun used in <Refer>
-type VoiceReferSip struct {
-	// sip_url: SIP URL
-	// OptionalAttributes: additional attributes
-	SipUrl             string
-	InnerElements      []Element
-	OptionalAttributes map[string]string
-}
-
-func (m VoiceReferSip) GetName() string {
-	return "Sip"
-}
-
-func (m VoiceReferSip) GetText() string {
-	return m.SipUrl
-}
-
-func (m VoiceReferSip) GetAttr() (map[string]string, map[string]string) {
-	return m.OptionalAttributes, nil
-}
-
-func (m VoiceReferSip) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
 // VoiceStopStream <StopStream> BXML Verb
 type VoiceStopStream struct {
 	// name: Friendly name given to the Stream
@@ -197,39 +141,6 @@ func (m VoicePause) GetInnerElements() []Element {
 	return m.InnerElements
 }
 
-// VoicePlay <Play> BXML Verb
-type VoicePlay struct {
-	// url: Media URL
-	// loop: Times to loop media
-	// digits: Play DTMF tones for digits
-	// OptionalAttributes: additional attributes
-	Url                string
-	Loop               string
-	Digits             string
-	InnerElements      []Element
-	OptionalAttributes map[string]string
-}
-
-func (m VoicePlay) GetName() string {
-	return "Play"
-}
-
-func (m VoicePlay) GetText() string {
-	return m.Url
-}
-
-func (m VoicePlay) GetAttr() (map[string]string, map[string]string) {
-	paramsAttr := map[string]string{
-		"Loop":   m.Loop,
-		"Digits": m.Digits,
-	}
-	return m.OptionalAttributes, paramsAttr
-}
-
-func (m VoicePlay) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
 // VoiceSpeakSentence <SpeakSentence> BXML Verb
 type VoiceSpeakSentence struct {
 	// text: The text to speak. Cannot be blank. Can be a mixture of plain text and SSML tags (see below for list of supported tags).
@@ -263,34 +174,6 @@ func (m VoiceSpeakSentence) GetAttr() (map[string]string, map[string]string) {
 }
 
 func (m VoiceSpeakSentence) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
-// VoiceReject <Reject> BXML Verb
-type VoiceReject struct {
-	// reason: Rejection reason
-	// OptionalAttributes: additional attributes
-	Reason             string
-	InnerElements      []Element
-	OptionalAttributes map[string]string
-}
-
-func (m VoiceReject) GetName() string {
-	return "Reject"
-}
-
-func (m VoiceReject) GetText() string {
-	return ""
-}
-
-func (m VoiceReject) GetAttr() (map[string]string, map[string]string) {
-	paramsAttr := map[string]string{
-		"Reason": m.Reason,
-	}
-	return m.OptionalAttributes, paramsAttr
-}
-
-func (m VoiceReject) GetInnerElements() []Element {
 	return m.InnerElements
 }
 
@@ -373,68 +256,6 @@ func (m VoiceRecord) GetInnerElements() []Element {
 	return m.InnerElements
 }
 
-// VoiceQueue <Queue> BXML Noun
-type VoiceQueue struct {
-	// name: Queue name
-	// url: Action URL
-	// method: Action URL method
-	// reservation_sid: TaskRouter Reservation SID
-	// post_work_activity_sid: TaskRouter Activity SID
-	// OptionalAttributes: additional attributes
-	Name                string
-	Url                 string
-	Method              string
-	ReservationSid      string
-	PostWorkActivitySid string
-	InnerElements       []Element
-	OptionalAttributes  map[string]string
-}
-
-func (m VoiceQueue) GetName() string {
-	return "Queue"
-}
-
-func (m VoiceQueue) GetText() string {
-	return m.Name
-}
-
-func (m VoiceQueue) GetAttr() (map[string]string, map[string]string) {
-	paramsAttr := map[string]string{
-		"Url":                 m.Url,
-		"Method":              m.Method,
-		"ReservationSid":      m.ReservationSid,
-		"PostWorkActivitySid": m.PostWorkActivitySid,
-	}
-	return m.OptionalAttributes, paramsAttr
-}
-
-func (m VoiceQueue) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
-// VoiceLeave <Leave> BXML Verb
-type VoiceLeave struct {
-	// OptionalAttributes: additional attributes
-	InnerElements      []Element
-	OptionalAttributes map[string]string
-}
-
-func (m VoiceLeave) GetName() string {
-	return "Leave"
-}
-
-func (m VoiceLeave) GetText() string {
-	return ""
-}
-
-func (m VoiceLeave) GetAttr() (map[string]string, map[string]string) {
-	return m.OptionalAttributes, nil
-}
-
-func (m VoiceLeave) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
 // VoiceHangup <Hangup> BXML Verb
 type VoiceHangup struct {
 	// OptionalAttributes: additional attributes
@@ -498,51 +319,6 @@ func (m VoiceGather) GetAttr() (map[string]string, map[string]string) {
 }
 
 func (m VoiceGather) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
-// VoiceEnqueue <Enqueue> BXML Noun
-type VoiceEnqueue struct {
-	// name: Friendly name
-	// action: Action URL
-	// max_queue_size: Maximum size of queue
-	// method: Action URL method
-	// wait_url: Wait URL
-	// wait_url_method: Wait URL method
-	// workflow_sid: TaskRouter Workflow SID
-	// OptionalAttributes: additional attributes
-	Name               string
-	Action             string
-	MaxQueueSize       string
-	Method             string
-	WaitUrl            string
-	WaitUrlMethod      string
-	WorkflowSid        string
-	InnerElements      []Element
-	OptionalAttributes map[string]string
-}
-
-func (m VoiceEnqueue) GetName() string {
-	return "Enqueue"
-}
-
-func (m VoiceEnqueue) GetText() string {
-	return m.Name
-}
-
-func (m VoiceEnqueue) GetAttr() (map[string]string, map[string]string) {
-	paramsAttr := map[string]string{
-		"Action":        m.Action,
-		"MaxQueueSize":  m.MaxQueueSize,
-		"Method":        m.Method,
-		"WaitUrl":       m.WaitUrl,
-		"WaitUrlMethod": m.WaitUrlMethod,
-		"WorkflowSid":   m.WorkflowSid,
-	}
-	return m.OptionalAttributes, paramsAttr
-}
-
-func (m VoiceEnqueue) GetInnerElements() []Element {
 	return m.InnerElements
 }
 
@@ -785,36 +561,5 @@ func (m VoiceConference) GetAttr() (map[string]string, map[string]string) {
 }
 
 func (m VoiceConference) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
-// VoiceConnect <Connect> BXML Verb
-type VoiceConnect struct {
-	// action: Action URL
-	// method: Action URL method
-	// OptionalAttributes: additional attributes
-	Action             string
-	Method             string
-	InnerElements      []Element
-	OptionalAttributes map[string]string
-}
-
-func (m VoiceConnect) GetName() string {
-	return "Connect"
-}
-
-func (m VoiceConnect) GetText() string {
-	return ""
-}
-
-func (m VoiceConnect) GetAttr() (map[string]string, map[string]string) {
-	paramsAttr := map[string]string{
-		"Action": m.Action,
-		"Method": m.Method,
-	}
-	return m.OptionalAttributes, paramsAttr
-}
-
-func (m VoiceConnect) GetInnerElements() []Element {
 	return m.InnerElements
 }
