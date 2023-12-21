@@ -43,6 +43,7 @@ func (m VoicePlayAudio) GetInnerElements() []Element {
 }
 
 // VoiceStopStream <StopStream> BXML Verb
+// https://dev.bandwidth.com/docs/voice/bxml/stopStream
 type VoiceStopStream struct {
 	// name: Friendly name given to the Stream
 	// OptionalAttributes: additional attributes
@@ -71,6 +72,7 @@ func (m VoiceStopStream) GetInnerElements() []Element {
 }
 
 // VoiceStreamParam <StreamParam> BXML Noun
+// https://dev.bandwidth.com/docs/voice/bxml/startStream#nested-tags
 type VoiceStreamParam struct {
 	// name: The name of the custom parameter
 	// value: The value of the custom parameter
@@ -102,6 +104,7 @@ func (m VoiceStreamParam) GetInnerElements() []Element {
 }
 
 // VoiceStartStream <StartStream> BXML Noun
+// https://dev.bandwidth.com/docs/voice/bxml/startStream
 type VoiceStartStream struct {
 	// name: Friendly name given to the Stream
 	// tracks: Track to be streamed to remote service
@@ -148,6 +151,7 @@ func (m VoiceStartStream) GetInnerElements() []Element {
 }
 
 // VoicePause <Pause> BXML Verb
+// https://dev.bandwidth.com/docs/voice/bxml/pause
 type VoicePause struct {
 	// duration: Length in seconds to pause
 	// OptionalAttributes: additional attributes
@@ -176,6 +180,7 @@ func (m VoicePause) GetInnerElements() []Element {
 }
 
 // VoiceSpeakSentence <SpeakSentence> BXML Verb
+// https://dev.bandwidth.com/docs/voice/bxml/speakSentence
 type VoiceSpeakSentence struct {
 	// text: The text to speak. Cannot be blank. Can be a mixture of plain text and SSML tags (see below for list of supported tags).
 	// voice: Selects the voice of the speaker. If the voice attribute is present, gender and locale are ignored.
@@ -291,6 +296,7 @@ func (m VoiceRecord) GetInnerElements() []Element {
 }
 
 // VoiceHangup <Hangup> BXML Verb
+// https://dev.bandwidth.com/docs/voice/bxml/hangup/
 type VoiceHangup struct {
 	// OptionalAttributes: additional attributes
 	InnerElements      []Element
@@ -357,12 +363,14 @@ func (m VoiceGather) GetInnerElements() []Element {
 }
 
 // VoiceTransfer <Transfer> BXML Verb
+// https://dev.bandwidth.com/docs/voice/bxml/transfer/
 type VoiceTransfer struct {
 	// transfer_caller_id: The caller ID to use when the call is transferred, if different. Must be in E.164 format (e.g. +15555555555) or be one of the following strings Restricted, Anonymous, Private, or Unavailable.
 	// transfer_caller_display_name: The caller display name to use when the call is transferred. May not exceed 256 characters nor contain control characters such as new lines.
 	// call_timeout: The timeout (in seconds) for the callee to answer the call after it starts ringing.
 	// transfer_complete_url: URL to send the Transfer Complete event to and request new BXML. Optional but recommended.
 	// transfer_complete_method:  The HTTP method to use for the request to transferCompleteUrl. GET or POST. Default value is POST.
+	// ... see docs above
 	// OptionalAttributes: additional attributes
 	TransferCallerId               string
 	TransferCallerDisplayName      string
@@ -415,6 +423,7 @@ func (m VoiceTransfer) GetInnerElements() []Element {
 }
 
 // VoiceSipUri <SipUri> BXML Noun
+// https://dev.bandwidth.com/docs/voice/bxml/transfer/#nested-tags
 type VoiceSipUri struct {
 	// sip_url: SIP URL
 	// uui: The value of the User-To-User header to send within the initial INVITE. Must include the encoding parameter as specified in RFC 7433. Only base64 and jwt encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters.
@@ -470,6 +479,7 @@ func (m VoiceSipUri) GetInnerElements() []Element {
 }
 
 // VoicePhoneNumber <PhoneNumber> BXML Noun
+// https://dev.bandwidth.com/docs/voice/bxml/transfer/#nested-tags
 type VoicePhoneNumber struct {
 	// phone_number: Phone Number to dial
 	// transfer_answer_url: URL, if any, to send the Transfer Answer event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL.
