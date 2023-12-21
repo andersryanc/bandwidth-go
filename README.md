@@ -4,11 +4,11 @@ This is a Go client library for [Bandwidth's Communication APIs](https://dev.ban
 
 At the time of writing, Bandwidth does not provide an official Go SDK for their APIs. Please check the official [Brandwidth SDKs](https://dev.bandwidth.com/sdks) page for updates and a possible release of an official Go SDK in the future.
 
-For now, this library only contains a package for generating [BXML](https://dev.bandwidth.com/docs/voice/bxml). As a base to work from, I copied the Twiml package from [Twilio's Go SDK](https://github.com/twilio/twilio-go).
+For now, this library only contains a package for generating [BXML](https://dev.bandwidth.com/docs/voice/bxml).
 
 ## ⚠️ WARNING! ⚠️ 
 
-This library is still in active development and is not ready for production use. Be aware that not all BXML verbs and nouns have been fully implemented yet. Because this project started as a copy of Twilio's Twiml package, some of the Twiml verbs and nouns may still be around. If you would like to contribute, please see feel free to submit a pull request.
+This library is still in active development. Be aware that not all BXML verbs and nouns have been fully implemented yet. Please see below for a full list of the completed verbs and nouns. If you would like to contribute, please see feel free to submit a pull request.
 
 ## Installation
 
