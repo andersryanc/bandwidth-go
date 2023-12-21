@@ -8,6 +8,40 @@ func Voice(verbs []Element) (string, error) {
 	return ToXML(doc)
 }
 
+// VoicePlayAudio <PlayAudio> BXML Verb
+// https://dev.bandwidth.com/docs/voice/bxml/playAudio/
+type VoicePlayAudio struct {
+	// audio_uri: The URL of the audio file to play. May be a relative URL.
+	// username: The username to send in the HTTP request to audioUri.
+	// password: The password to send in the HTTP request to audioUri.
+	// OptionalAttributes: additional attributes
+	AudioUri           string
+	Username           string
+	Password           string
+	InnerElements      []Element
+	OptionalAttributes map[string]string
+}
+
+func (m VoicePlayAudio) GetName() string {
+	return "PlayAudio"
+}
+
+func (m VoicePlayAudio) GetText() string {
+	return m.AudioUri
+}
+
+func (m VoicePlayAudio) GetAttr() (map[string]string, map[string]string) {
+	paramsAttr := map[string]string{
+		"Username": m.Username,
+		"Password": m.Password,
+	}
+	return m.OptionalAttributes, paramsAttr
+}
+
+func (m VoicePlayAudio) GetInnerElements() []Element {
+	return m.InnerElements
+}
+
 // VoiceStopStream <StopStream> BXML Verb
 type VoiceStopStream struct {
 	// name: Friendly name given to the Stream
