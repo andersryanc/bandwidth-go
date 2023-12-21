@@ -104,16 +104,16 @@ func (m VoiceStreamParam) GetInnerElements() []Element {
 // VoiceStartStream <StartStream> BXML Noun
 type VoiceStartStream struct {
 	// name: Friendly name given to the Stream
-	// destination: URL of the remote service where the Stream is routed
 	// tracks: Track to be streamed to remote service
+	// destination: URL of the remote service where the Stream is routed
 	// stream_event_url: Stream Event URL
 	// stream_event_method: Stream Event URL method
 	// username: Stream Event URL username
 	// password: Stream Event URL password
 	// OptionalAttributes: additional attributes
 	Name               string
-	Destination        string
 	Tracks             string
+	Destination        string
 	StreamEventUrl     string
 	StreamEventMethod  string
 	Username           string
@@ -133,8 +133,8 @@ func (m VoiceStartStream) GetText() string {
 func (m VoiceStartStream) GetAttr() (map[string]string, map[string]string) {
 	paramsAttr := map[string]string{
 		"Name":              m.Name,
-		"Destination":       m.Destination,
 		"Tracks":            m.Tracks,
+		"Destination":       m.Destination,
 		"StreamEventUrl":    m.StreamEventUrl,
 		"StreamEventMethod": m.StreamEventMethod,
 		"Username":          m.Username,
@@ -375,6 +375,9 @@ type VoiceTransfer struct {
 	Password                       string
 	FallbackUsername               string
 	FallbackPassword               string
+	Tag                            string
+	DiversionTreatment             string
+	DiversionReason                string
 	InnerElements                  []Element
 	OptionalAttributes             map[string]string
 }
@@ -400,6 +403,9 @@ func (m VoiceTransfer) GetAttr() (map[string]string, map[string]string) {
 		"Password":                       m.Password,
 		"FallbackUsername":               m.FallbackUsername,
 		"FallbackPassword":               m.FallbackPassword,
+		"Tag":                            m.Tag,
+		"DiversionTreatment":             m.DiversionTreatment,
+		"DiversionReason":                m.DiversionReason,
 	}
 	return m.OptionalAttributes, paramsAttr
 }
@@ -428,6 +434,7 @@ type VoiceSipUri struct {
 	Password                     string
 	FallbackUsername             string
 	FallbackPassword             string
+	Tag                          string
 	InnerElements                []Element
 	OptionalAttributes           map[string]string
 }
@@ -453,6 +460,7 @@ func (m VoiceSipUri) GetAttr() (map[string]string, map[string]string) {
 		"Password":                     m.Password,
 		"FallbackUsername":             m.FallbackUsername,
 		"FallbackPassword":             m.FallbackPassword,
+		"Tag":                          m.Tag,
 	}
 	return m.OptionalAttributes, paramsAttr
 }
@@ -479,6 +487,7 @@ type VoicePhoneNumber struct {
 	Password                     string
 	FallbackUsername             string
 	FallbackPassword             string
+	Tag                          string
 	InnerElements                []Element
 	OptionalAttributes           map[string]string
 }
@@ -503,6 +512,7 @@ func (m VoicePhoneNumber) GetAttr() (map[string]string, map[string]string) {
 		"Password":                     m.Password,
 		"FallbackUsername":             m.FallbackUsername,
 		"FallbackPassword":             m.FallbackPassword,
+		"Tag":                          m.Tag,
 	}
 	return m.OptionalAttributes, paramsAttr
 }

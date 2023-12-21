@@ -5,6 +5,7 @@ bandwidth-go changelog
 ---------------------------
 - Remove unmatched verbs and nouns.
 - Add PlayAudio verb.
+- Cleanup attributes for StartStream, Transfer, SipUri, and PhoneNumber.
 
 [2023-12-21] Version 0.0.1
 ---------------------------
