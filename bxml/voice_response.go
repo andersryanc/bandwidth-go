@@ -338,22 +338,28 @@ func (m VoiceHangup) GetInnerElements() []Element {
 }
 
 // VoiceGather <Gather> BXML Verb
+// https://dev.bandwidth.com/docs/voice/bxml/gather
 type VoiceGather struct {
 	// gather_url: Gather URL
 	// gather_method: Gather URL method
-	// inter_digit_timeout: Time to wait between gathering input(s)
-	// first_digit_timeout: Time to wait to gather input
-	// terminating_digits: Finish gather on key
-	// max_digits: Number of digits to collect
+	// ... see docs above
 	// OptionalAttributes: additional attributes
-	GatherUrl          string
-	GatherMethod       string
-	InterDigitTimeout  string
-	FirstDigitTimeout  string
-	TerminatingDigits  string
-	MaxDigits          string
-	InnerElements      []Element
-	OptionalAttributes map[string]string
+	GatherUrl            string
+	GatherMethod         string
+	GatherFallbackUrl    string
+	GatherFallbackMethod string
+	Username             string
+	Password             string
+	FallbackUsername     string
+	FallbackPassword     string
+	Tag                  string
+	TerminatingDigits    string
+	MaxDigits            string
+	InterDigitTimeout    string
+	FirstDigitTimeout    string
+	RepeatCount          string
+	InnerElements        []Element
+	OptionalAttributes   map[string]string
 }
 
 func (m VoiceGather) GetName() string {
@@ -366,12 +372,20 @@ func (m VoiceGather) GetText() string {
 
 func (m VoiceGather) GetAttr() (map[string]string, map[string]string) {
 	paramsAttr := map[string]string{
-		"GatherUrl":         m.GatherUrl,
-		"GatherMethod":      m.GatherMethod,
-		"InterDigitTimeout": m.InterDigitTimeout,
-		"FirstDigitTimeout": m.FirstDigitTimeout,
-		"TerminatingDigits": m.TerminatingDigits,
-		"MaxDigits":         m.MaxDigits,
+		"GatherUrl":            m.GatherUrl,
+		"GatherMethod":         m.GatherMethod,
+		"GatherFallbackUrl":    m.GatherFallbackUrl,
+		"GatherFallbackMethod": m.GatherFallbackMethod,
+		"Username":             m.Username,
+		"Password":             m.Password,
+		"FallbackUsername":     m.FallbackUsername,
+		"FallbackPassword":     m.FallbackPassword,
+		"Tag":                  m.Tag,
+		"TerminatingDigits":    m.TerminatingDigits,
+		"MaxDigits":            m.MaxDigits,
+		"InterDigitTimeout":    m.InterDigitTimeout,
+		"FirstDigitTimeout":    m.FirstDigitTimeout,
+		"RepeatCount":          m.RepeatCount,
 	}
 	return m.OptionalAttributes, paramsAttr
 }

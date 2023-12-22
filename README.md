@@ -47,7 +47,7 @@ Once the module is initialized, you may run the installation command from above,
 - [ ] [`<PauseRecording>`](https://dev.bandwidth.com/docs/voice/bxml/pauseRecording)	The PauseRecording verb is used to pause a recording previously started by a <StartRecording> verb.
 - [ ] [`<ResumeRecording>`](https://dev.bandwidth.com/docs/voice/bxml/resumeRecording)	The ResumeRecording verb is used to resume a recording previously paused by a <PauseRecording> verb.
 - [ ] [`<StopRecording>`](https://dev.bandwidth.com/docs/voice/bxml/stopRecording)	The StopRecording verb stops a recording that was previously started by a <StartRecording>.
-- [ ] [`<Gather>`](https://dev.bandwidth.com/docs/voice/bxml/gather)	The Gather verb is used to collect DTMF digits.
+- [x] [`<Gather>`](https://dev.bandwidth.com/docs/voice/bxml/gather)	The Gather verb is used to collect DTMF digits.
 - [ ] [`<StartGather>`](https://dev.bandwidth.com/docs/voice/bxml/startGather)	The StartGather verb is used to collect DTMF digits during the execution of other verbs.
 - [ ] [`<StopGather>`](https://dev.bandwidth.com/docs/voice/bxml/stopGather)	The StopGather verb stops the DTMF collection initiated by <StartGather>.
 - [x] [`<StartStream>`](https://dev.bandwidth.com/docs/voice/bxml/startStream)	The StartStream verb allows a segment of a call to be streamed to an external destination.
