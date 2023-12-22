@@ -3,7 +3,8 @@ bandwidth-go changelog
 
 [2023-12-21] Version 0.0.3
 ---------------------------
-- Update Gather, and Record verb attributes.
+- Update Gather and Record verb attributes.
+- Remove incomplete verbs Conference and Redirect.
 
 [2023-12-21] Version 0.0.2
 ---------------------------

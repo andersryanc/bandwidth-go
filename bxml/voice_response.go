@@ -216,36 +216,6 @@ func (m VoiceSpeakSentence) GetInnerElements() []Element {
 	return m.InnerElements
 }
 
-// VoiceRedirect <Redirect> BXML Verb
-type VoiceRedirect struct {
-	// url: Redirect URL
-	// method: Redirect URL method
-	// OptionalAttributes: additional attributes
-	Url                string
-	Method             string
-	InnerElements      []Element
-	OptionalAttributes map[string]string
-}
-
-func (m VoiceRedirect) GetName() string {
-	return "Redirect"
-}
-
-func (m VoiceRedirect) GetText() string {
-	return m.Url
-}
-
-func (m VoiceRedirect) GetAttr() (map[string]string, map[string]string) {
-	paramsAttr := map[string]string{
-		"Method": m.Method,
-	}
-	return m.OptionalAttributes, paramsAttr
-}
-
-func (m VoiceRedirect) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
 // VoiceRecord <Record> BXML Verb
 // https://dev.bandwidth.com/docs/voice/bxml/record
 type VoiceRecord struct {
@@ -560,92 +530,5 @@ func (m VoicePhoneNumber) GetAttr() (map[string]string, map[string]string) {
 }
 
 func (m VoicePhoneNumber) GetInnerElements() []Element {
-	return m.InnerElements
-}
-
-// VoiceConference <Conference> BXML Noun
-type VoiceConference struct {
-	// name: Conference name
-	// muted: Join the conference muted
-	// beep: Play beep when joining
-	// start_conference_on_enter: Start the conference on enter
-	// end_conference_on_exit: End the conferenceon exit
-	// wait_url: Wait URL
-	// wait_method: Wait URL method
-	// max_participants: Maximum number of participants
-	// record: Record the conference
-	// region: Conference region
-	// coach: Call coach
-	// trim: Trim the conference recording
-	// status_callback_event: Events to call status callback URL
-	// status_callback: Status callback URL
-	// status_callback_method: Status callback URL method
-	// recording_status_callback: Recording status callback URL
-	// recording_status_callback_method: Recording status callback URL method
-	// recording_status_callback_event: Recording status callback events
-	// event_callback_url: Event callback URL
-	// jitter_buffer_size: Size of jitter buffer for participant
-	// participant_label: A label for participant
-	// OptionalAttributes: additional attributes
-	Name                          string
-	Muted                         string
-	Beep                          string
-	StartConferenceOnEnter        string
-	EndConferenceOnExit           string
-	WaitUrl                       string
-	WaitMethod                    string
-	MaxParticipants               string
-	Record                        string
-	Region                        string
-	Coach                         string
-	Trim                          string
-	StatusCallbackEvent           string
-	StatusCallback                string
-	StatusCallbackMethod          string
-	RecordingStatusCallback       string
-	RecordingStatusCallbackMethod string
-	RecordingStatusCallbackEvent  string
-	EventCallbackUrl              string
-	JitterBufferSize              string
-	ParticipantLabel              string
-	InnerElements                 []Element
-	OptionalAttributes            map[string]string
-}
-
-func (m VoiceConference) GetName() string {
-	return "Conference"
-}
-
-func (m VoiceConference) GetText() string {
-	return m.Name
-}
-
-func (m VoiceConference) GetAttr() (map[string]string, map[string]string) {
-	paramsAttr := map[string]string{
-		"Muted":                         m.Muted,
-		"Beep":                          m.Beep,
-		"StartConferenceOnEnter":        m.StartConferenceOnEnter,
-		"EndConferenceOnExit":           m.EndConferenceOnExit,
-		"WaitUrl":                       m.WaitUrl,
-		"WaitMethod":                    m.WaitMethod,
-		"MaxParticipants":               m.MaxParticipants,
-		"Record":                        m.Record,
-		"Region":                        m.Region,
-		"Coach":                         m.Coach,
-		"Trim":                          m.Trim,
-		"StatusCallbackEvent":           m.StatusCallbackEvent,
-		"StatusCallback":                m.StatusCallback,
-		"StatusCallbackMethod":          m.StatusCallbackMethod,
-		"RecordingStatusCallback":       m.RecordingStatusCallback,
-		"RecordingStatusCallbackMethod": m.RecordingStatusCallbackMethod,
-		"RecordingStatusCallbackEvent":  m.RecordingStatusCallbackEvent,
-		"EventCallbackUrl":              m.EventCallbackUrl,
-		"JitterBufferSize":              m.JitterBufferSize,
-		"ParticipantLabel":              m.ParticipantLabel,
-	}
-	return m.OptionalAttributes, paramsAttr
-}
-
-func (m VoiceConference) GetInnerElements() []Element {
 	return m.InnerElements
 }
