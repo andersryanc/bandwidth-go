@@ -247,26 +247,33 @@ func (m VoiceRedirect) GetInnerElements() []Element {
 }
 
 // VoiceRecord <Record> BXML Verb
+// https://dev.bandwidth.com/docs/voice/bxml/record
 type VoiceRecord struct {
-	// action: Action URL
-	// method: Action URL method
-	// finish_on_key: Finish recording on key
-	// max_length: Max time to record in seconds
-	// play_beep: Play beep
-	// trim: Trim the recording
-	// recording_status_callback: Status callback URL
-	// recording_status_callback_method: Status callback URL method
+	// record_complete_url: URL to send the Record Complete event to once the recording has ended. Accepts BXML, and may be a relative URL. This callback will not be sent if the recording ended due to the call hanging up.
+	// record_complete_method: The HTTP method to use for the request to recordCompleteUrl. GET or POST. Default value is POST.
+	// ... see docs above
 	// OptionalAttributes: additional attributes
-	Action                        string
-	Method                        string
-	FinishOnKey                   string
-	MaxLength                     string
-	PlayBeep                      string
-	Trim                          string
-	RecordingStatusCallback       string
-	RecordingStatusCallbackMethod string
-	InnerElements                 []Element
-	OptionalAttributes            map[string]string
+	RecordCompleteUrl            string
+	RecordCompleteMethod         string
+	RecordCompleteFallbackUrl    string
+	RecordCompleteFallbackMethod string
+	RecordingAvailableUrl        string
+	RecordingAvailableMethod     string
+	Transcribe                   string
+	DetectLanguage               string
+	TranscriptionAvailableUrl    string
+	TranscriptionAvailableMethod string
+	Username                     string
+	Password                     string
+	FallbackUsername             string
+	FallbackPassword             string
+	Tag                          string
+	TerminatingDigits            string
+	MaxDuration                  string
+	SilenceTimeout               string
+	FileFormat                   string
+	InnerElements                []Element
+	OptionalAttributes           map[string]string
 }
 
 func (m VoiceRecord) GetName() string {
@@ -279,14 +286,25 @@ func (m VoiceRecord) GetText() string {
 
 func (m VoiceRecord) GetAttr() (map[string]string, map[string]string) {
 	paramsAttr := map[string]string{
-		"Action":                        m.Action,
-		"Method":                        m.Method,
-		"FinishOnKey":                   m.FinishOnKey,
-		"MaxLength":                     m.MaxLength,
-		"PlayBeep":                      m.PlayBeep,
-		"Trim":                          m.Trim,
-		"RecordingStatusCallback":       m.RecordingStatusCallback,
-		"RecordingStatusCallbackMethod": m.RecordingStatusCallbackMethod,
+		"RecordCompleteUrl":            m.RecordCompleteUrl,
+		"RecordCompleteMethod":         m.RecordCompleteMethod,
+		"RecordCompleteFallbackUrl":    m.RecordCompleteFallbackUrl,
+		"RecordCompleteFallbackMethod": m.RecordCompleteFallbackMethod,
+		"RecordingAvailableUrl":        m.RecordingAvailableUrl,
+		"RecordingAvailableMethod":     m.RecordingAvailableMethod,
+		"Transcribe":                   m.Transcribe,
+		"DetectLanguage":               m.DetectLanguage,
+		"TranscriptionAvailableUrl":    m.TranscriptionAvailableUrl,
+		"TranscriptionAvailableMethod": m.TranscriptionAvailableMethod,
+		"Username":                     m.Username,
+		"Password":                     m.Password,
+		"FallbackUsername":             m.FallbackUsername,
+		"FallbackPassword":             m.FallbackPassword,
+		"Tag":                          m.Tag,
+		"TerminatingDigits":            m.TerminatingDigits,
+		"MaxDuration":                  m.MaxDuration,
+		"SilenceTimeout":               m.SilenceTimeout,
+		"FileFormat":                   m.FileFormat,
 	}
 	return m.OptionalAttributes, paramsAttr
 }

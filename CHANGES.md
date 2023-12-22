@@ -1,6 +1,10 @@
 bandwidth-go changelog
 ====================
 
+[2023-12-21] Version 0.0.3
+---------------------------
+- Update Record verb attributes.
+
 [2023-12-21] Version 0.0.2
 ---------------------------
 - Remove unmatched verbs and nouns.

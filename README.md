@@ -42,7 +42,7 @@ Once the module is initialized, you may run the installation command from above,
 - [ ] [`<Redirect>`](https://dev.bandwidth.com/docs/voice/bxml/redirect)	The Redirect verb is used to redirect the current XML execution to another URL.
 - [x] [`<PlayAudio>`](https://dev.bandwidth.com/docs/voice/bxml/playAudio/)	The PlayAudio verb is used to play an audio file in the call.
 - [x] [`<SpeakSentence>`](https://dev.bandwidth.com/docs/voice/bxml/speakSentence)	The SpeakSentence verb converts text into audible speech.
-- [ ] [`<Record>`](https://dev.bandwidth.com/docs/voice/bxml/record)	The Record verb allows a segment of audio to be recorded during a call.
+- [x] [`<Record>`](https://dev.bandwidth.com/docs/voice/bxml/record)	The Record verb allows a segment of audio to be recorded during a call.
 - [ ] [`<StartRecording>`](https://dev.bandwidth.com/docs/voice/bxml/startRecording)	The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.
 - [ ] [`<PauseRecording>`](https://dev.bandwidth.com/docs/voice/bxml/pauseRecording)	The PauseRecording verb is used to pause a recording previously started by a <StartRecording> verb.
 - [ ] [`<ResumeRecording>`](https://dev.bandwidth.com/docs/voice/bxml/resumeRecording)	The ResumeRecording verb is used to resume a recording previously paused by a <PauseRecording> verb.
